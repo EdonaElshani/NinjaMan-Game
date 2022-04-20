@@ -1,16 +1,21 @@
 var world = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 2, 3, 2, 3, 2, 2, 1, 1],
-  [1, 2, 1, 1, 1, 1, 1, 2, 1, 1],
-  [1, 2, 3, 2, 2, 1, 2, 3, 1, 1],
-  [1, 1, 1, 1, 3, 2, 2, 1, 1, 1],
-  [1, 2, 3, 1, 1, 1, 2, 2, 1, 1],
-  [1, 1, 2, 1, 1, 1, 2, 1, 1, 1],
-  [1, 3, 2, 3, 2, 2, 3, 2, 1, 1],
-  [1, 2, 1, 2, 1, 2, 1, 2, 1, 1],
+  [1, 0, randomNumber(), randomNumber(), 2, 3, randomNumber(), 2, 1, 1],
+  [1, randomNumber(), 1, 1, 1, 1, 1, randomNumber(), 1, 1],
+  [1, 2, randomNumber(), 2, 2, 1, randomNumber(), randomNumber(), 1, 1],
+  [1, 1, 1, 1, randomNumber(), randomNumber(), randomNumber(), 1, 1, 1],
+  [1, 2, randomNumber(), 1, 1, 1, randomNumber(), randomNumber(), 1, 1],
+  [1, 1, randomNumber(), 1, 1, 1, randomNumber(), 1, 1, 1],
+  [1, 3, randomNumber(), 3, 2, randomNumber(), 3, randomNumber(), 1, 1],
+  [1, randomNumber(), 1, randomNumber(), 1, 2, 1, randomNumber(), 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
 
+function randomNumber() {
+  var min = 2;
+  var max = 3;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 var worldDictionary = {
   0: "blank",
   1: "wall",
@@ -43,7 +48,8 @@ var direction = "right";
 function drawNinja() {
   document.querySelector(".ninja-man").style.left = ninjaMan.x * 50 + "px";
   document.querySelector(".ninja-man").style.top = ninjaMan.y * 50 + "px";
-  document.querySelector(".ninja-man").style.backgroundImage = "url(img/" + direction + ".gif)";
+  document.querySelector(".ninja-man").style.backgroundImage =
+    "url(img/" + direction + ".gif)";
 }
 
 drawNinja();
