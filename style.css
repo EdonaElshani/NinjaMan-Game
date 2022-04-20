@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.wall,
+.sushi,
+.blank,
+.ninja-man {
+  width: 50px;
+  height: 50px;
+}
+.sushi,
+.ninja-man,
+.blank {
+  background-color: rgb(24, 23, 23);
+}
+.wall {
+  background-color: #E9BC90;
+}
+.row {
+  display: inline-block;
+}
+.sushi {
+  background-image: url(img/sushi.png);
+  background-size: contain;
+}
+.ninja-man {
+  background-image: url(img/ninja.gif);
+  background-size: contain;
+  position: absolute;
+}
+.score {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+  position: absolute;
+  top: 1%;
+  left: 19.5%;
+  background-color: #B38563;
+  width: 8em;
+  height: 5vh;
+  font-family: serif;
+  font-size: 1rem;
+}
