@@ -1,12 +1,12 @@
 var world = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 2, 2, 2, 2, 2, 2, 1, 1],
+  [1, 0, 2, 3, 2, 3, 2, 2, 1, 1],
   [1, 2, 1, 1, 1, 1, 1, 2, 1, 1],
-  [1, 2, 2, 2, 2, 1, 2, 2, 1, 1],
-  [1, 1, 1, 1, 2, 2, 2, 1, 1, 1],
-  [1, 2, 2, 1, 1, 1, 2, 2, 1, 1],
+  [1, 2, 3, 2, 2, 1, 2, 3, 1, 1],
+  [1, 1, 1, 1, 3, 2, 2, 1, 1, 1],
+  [1, 2, 3, 1, 1, 1, 2, 2, 1, 1],
   [1, 1, 2, 1, 1, 1, 2, 1, 1, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 1, 1],
+  [1, 3, 2, 3, 2, 2, 3, 2, 1, 1],
   [1, 2, 1, 2, 1, 2, 1, 2, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
@@ -15,6 +15,7 @@ var worldDictionary = {
   0: "blank",
   1: "wall",
   2: "sushi",
+  3: "onigiri",
 };
 
 function drawWorld() {
@@ -46,23 +47,40 @@ function drawNinja() {
 
 drawNinja();
 var eatenSushi = 0;
+var eatenOnigiri = 0;
 document.onkeydown = function (e) {
   if (e.keyCode == 37 && world[ninjaMan.y][ninjaMan.x - 1] != 1) {
     //LEFT
     ninjaMan.x = ninjaMan.x - 1;
-    eatenSushi++;
+    if (world[ninjaMan.y][ninjaMan.x - 1] == 2) {
+      eatenSushi++;
+    } else if (world[ninjaMan.y][ninjaMan.x - 1] == 3) {
+      eatenOnigiri++;
+    }
   } else if (e.keyCode == 39 && world[ninjaMan.y][ninjaMan.x + 1] != 1) {
     //RIGHT
     ninjaMan.x = ninjaMan.x + 1;
-    eatenSushi++;
+    if (world[ninjaMan.y][ninjaMan.x] == 2) {
+      eatenSushi++;
+    } else if (world[ninjaMan.y][ninjaMan.x] == 3) {
+      eatenOnigiri++;
+    }
   } else if (e.keyCode == 40 && world[ninjaMan.y + 1][ninjaMan.x] != 1) {
     //DOWN
     ninjaMan.y = ninjaMan.y + 1;
-    eatenSushi++;
+    if (world[ninjaMan.y][ninjaMan.x] == 2) {
+      eatenSushi++;
+    } else if (world[ninjaMan.y][ninjaMan.x] == 3) {
+      eatenOnigiri++;
+    }
   } else if (e.keyCode == 38 && world[ninjaMan.y - 1][ninjaMan.x] != 1) {
     //TOP
     ninjaMan.y = ninjaMan.y - 1;
-    eatenSushi++;
+    if (world[ninjaMan.y][ninjaMan.x] == 2) {
+      eatenSushi++;
+    } else if (world[ninjaMan.y][ninjaMan.x] == 3) {
+      eatenOnigiri++;
+    }
   }
   world[ninjaMan.y][ninjaMan.x] = 0;
   drawNinja();
@@ -70,4 +88,7 @@ document.onkeydown = function (e) {
 
   var sushiScore = document.querySelector(".sushi-Score");
   sushiScore.textContent = eatenSushi * 10 + "pts";
+
+  var onigiriScore = document.querySelector(".onigiri-Score");
+  onigiriScore.textContent = eatenOnigiri * 5 + "pts";
 };

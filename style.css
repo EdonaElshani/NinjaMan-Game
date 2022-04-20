@@ -6,7 +6,8 @@
 .wall,
 .sushi,
 .blank,
-.ninja-man {
+.ninja-man,
+.onigiri {
   width: 50px;
   height: 50px;
 }
@@ -16,13 +17,17 @@
   background-color: rgb(24, 23, 23);
 }
 .wall {
-  background-color: #E9BC90;
+  background-color: #e9bc90;
 }
 .row {
   display: inline-block;
 }
 .sushi {
   background-image: url(img/sushi.png);
+  background-size: contain;
+}
+.onigiri{
+  background-image: url(img/onigiri.png);
   background-size: contain;
 }
 .ninja-man {
@@ -32,14 +37,15 @@
 }
 .score {
   display: flex;
-  justify-content: space-around;
-  align-items: center; 
+  justify-content: space-between;
+  align-items: center;
   position: absolute;
-  top: 1%;
+  flex-wrap: wrap;
+  padding: 3px;
   left: 22%;
-  background-color: #B38563;
-  width: 9em;
-  height: 5vh;
+  top: 0;
+  background-color: #b38563;
+  width: 10em;
   font-family: serif;
   font-size: 1rem;
 }
