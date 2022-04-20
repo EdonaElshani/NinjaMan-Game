@@ -39,10 +39,11 @@ var ninjaMan = {
   x: 1,
   y: 1,
 };
-
+var direction = "right";
 function drawNinja() {
   document.querySelector(".ninja-man").style.left = ninjaMan.x * 50 + "px";
   document.querySelector(".ninja-man").style.top = ninjaMan.y * 50 + "px";
+  document.querySelector(".ninja-man").style.backgroundImage = "url(img/" + direction + ".gif)";
 }
 
 drawNinja();
@@ -57,9 +58,11 @@ document.onkeydown = function (e) {
     } else if (world[ninjaMan.y][ninjaMan.x - 1] == 3) {
       eatenOnigiri++;
     }
+    direction = "left";
   } else if (e.keyCode == 39 && world[ninjaMan.y][ninjaMan.x + 1] != 1) {
     //RIGHT
     ninjaMan.x = ninjaMan.x + 1;
+    direction = "right";
     if (world[ninjaMan.y][ninjaMan.x] == 2) {
       eatenSushi++;
     } else if (world[ninjaMan.y][ninjaMan.x] == 3) {
@@ -68,6 +71,7 @@ document.onkeydown = function (e) {
   } else if (e.keyCode == 40 && world[ninjaMan.y + 1][ninjaMan.x] != 1) {
     //DOWN
     ninjaMan.y = ninjaMan.y + 1;
+    direction = "down";
     if (world[ninjaMan.y][ninjaMan.x] == 2) {
       eatenSushi++;
     } else if (world[ninjaMan.y][ninjaMan.x] == 3) {
@@ -75,6 +79,7 @@ document.onkeydown = function (e) {
     }
   } else if (e.keyCode == 38 && world[ninjaMan.y - 1][ninjaMan.x] != 1) {
     //TOP
+    direction = "top";
     ninjaMan.y = ninjaMan.y - 1;
     if (world[ninjaMan.y][ninjaMan.x] == 2) {
       eatenSushi++;
