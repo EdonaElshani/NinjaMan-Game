@@ -98,8 +98,8 @@ document.onkeydown = function (e) {
   drawWorld();
 
   var sushiScore = document.querySelector(".sushi-Score");
-  sushiScore.textContent = eatenSushi * 10 + "pts";
+  sushiScore.textContent = eatenSushi * 10;
 
   var onigiriScore = document.querySelector(".onigiri-Score");
-  onigiriScore.textContent = eatenOnigiri * 5 + "pts";
+  onigiriScore.textContent = eatenOnigiri * 5;
 };
