@@ -1,14 +1,14 @@
 var world = [
-  [1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 1, 1, 1, 1, 1, 2, 1],
-  [1, 2, 2, 2, 2, 1, 2, 2, 1],
-  [1, 1, 1, 1, 2, 2, 2, 1, 1],
-  [1, 2, 2, 1, 1, 1, 2, 2, 1],
-  [1, 1, 2, 1, 1, 1, 2, 1, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 1, 2, 1, 2, 1, 2, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 0, 2, 2, 2, 2, 2, 2, 1, 1],
+  [1, 2, 1, 1, 1, 1, 1, 2, 1, 1],
+  [1, 2, 2, 2, 2, 1, 2, 2, 1, 1],
+  [1, 1, 1, 1, 2, 2, 2, 1, 1, 1],
+  [1, 2, 2, 1, 1, 1, 2, 2, 1, 1],
+  [1, 1, 2, 1, 1, 1, 2, 1, 1, 1],
+  [1, 2, 2, 2, 2, 2, 2, 2, 1, 1],
+  [1, 2, 1, 2, 1, 2, 1, 2, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
 
 var worldDictionary = {
@@ -51,18 +51,15 @@ document.onkeydown = function (e) {
     //LEFT
     ninjaMan.x = ninjaMan.x - 1;
     eatenSushi++;
-  }
-  else if (e.keyCode == 39 && world[ninjaMan.y][ninjaMan.x + 1] != 1) {
+  } else if (e.keyCode == 39 && world[ninjaMan.y][ninjaMan.x + 1] != 1) {
     //RIGHT
     ninjaMan.x = ninjaMan.x + 1;
     eatenSushi++;
-  }
-  else if (e.keyCode == 40 && world[ninjaMan.y + 1][ninjaMan.x] != 1) {
+  } else if (e.keyCode == 40 && world[ninjaMan.y + 1][ninjaMan.x] != 1) {
     //DOWN
     ninjaMan.y = ninjaMan.y + 1;
     eatenSushi++;
-  }
-  else if (e.keyCode == 38 && world[ninjaMan.y - 1][ninjaMan.x] != 1) {
+  } else if (e.keyCode == 38 && world[ninjaMan.y - 1][ninjaMan.x] != 1) {
     //TOP
     ninjaMan.y = ninjaMan.y - 1;
     eatenSushi++;
@@ -71,8 +68,6 @@ document.onkeydown = function (e) {
   drawNinja();
   drawWorld();
 
-var sushiScore = document.querySelector(".sushi-Score");
-sushiScore.textContent = eatenSushi * 10 + "pts";
+  var sushiScore = document.querySelector(".sushi-Score");
+  sushiScore.textContent = eatenSushi * 10 + "pts";
 };
-
-
