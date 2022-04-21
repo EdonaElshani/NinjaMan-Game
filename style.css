@@ -52,3 +52,10 @@
 .score img{
   width: 1em;
 }
+.reload-header{
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  text-align: center;
+  width: 40.5vw;
+  background-color: #e9bc90;
+}
